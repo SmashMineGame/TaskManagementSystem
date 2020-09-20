@@ -1,12 +1,15 @@
-import React from 'react';
-import Nav from './Nav';
-import TaskList from './TaskList';
+import React, { Component } from 'react';
 
-function TodoApp() {
-	return (<>
-		<Nav />
-		<TaskList />
+import Nav from './components/Nav';
+import TaskList from './components/TaskList';
+
+class TodoApp extends Component {
+	render() {
+		return (<>
+			<Nav />
+			<TaskList />
 		</>);
+	}
 }
 
 export default TodoApp;

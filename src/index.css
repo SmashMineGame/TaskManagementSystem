@@ -41,7 +41,15 @@ nav {
   border-bottom: black solid 1px;
 }
 
+button {
+  color: var(--dark);
+}
+
 #content {
   background: var(--dark);
   padding: 15px;
+}
+
+.task {
+  border-top: solid 7px var(--darkGrey);
 }
