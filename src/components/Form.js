@@ -8,7 +8,7 @@ class Form extends Component {
 	
 
 	newTaskHandler() {
-		this.props.newTask({name: 'Sample Task Name'});
+		this.props.newTask('Sample Task Name');
 	}
 
 	render() {

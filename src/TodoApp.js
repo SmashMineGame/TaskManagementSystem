@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { v4 as uuid } from 'uuid';
 
 import Nav from './components/Nav';
 import TaskList from './components/TaskList';
@@ -9,20 +10,35 @@ class TodoApp extends Component {
 		super(props);
 		
 		this.state = {
-			tasks: [
-				{name: "sample task 1"}, {name: "sample task 2"}
-			]
+			tasks: []
 		}
 
 		this.newTask = this.newTask.bind(this);
+
+	}
+
+	componentDidMount() {
+		this.newTask("sample task 1");
+		this.newTask("sample task 2");
 	}
 	
-	
-	newTask(task){
-		this.setState({
-			tasks: [...this.state.tasks, task]
-		});
-		console.log(this.state.tasks);
+
+	newTask(taskName){
+
+		var taskTemplate = {
+			name: undefined,
+			checked: false,
+			key: uuid()
+		}
+
+		var newTask = JSON.parse(JSON.stringify(taskTemplate));
+		newTask.name = taskName;
+
+		var newState = JSON.parse(JSON.stringify(this.state));
+		newState.tasks.push(newTask);
+
+		this.setState(newState);
+		console.log(newTask);
 	}
 
 	render() {

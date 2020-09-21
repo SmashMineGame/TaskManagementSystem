@@ -9,7 +9,7 @@ class TaskList extends Component {
 			<div className="container" id="content">
 				<Form newTask={this.props.newTask}/>
 				{this.props.tasks.map(task => 
-					<Task name={task.name} />
+					<Task name={task.name} key={task.key} />
 				)}
 			</div>
 		);
