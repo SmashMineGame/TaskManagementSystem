@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 
 class Form extends Component {
+	constructor(props) {
+		super(props);
+		this.newTaskHandler = this.newTaskHandler.bind(this);
+	}
+	
+
+	newTaskHandler() {
+		this.props.newTask({name: 'Sample Task Name'});
+	}
+
 	render() {
 		return (
-			<form>
-				<input type="text" />
-				<button type="submit"> Add Task </button>
-			</form>
+			<button onClick={this.newTaskHandler}>Create New Task</button>
 		);
 	}
 }

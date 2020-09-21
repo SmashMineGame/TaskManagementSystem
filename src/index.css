@@ -51,5 +51,7 @@ button {
 }
 
 .task {
-  border-top: solid 7px var(--darkGrey);
+  border: solid 1px var(--lightGrey);
+  margin-top: 5px;
+  padding: 5px;
 }
