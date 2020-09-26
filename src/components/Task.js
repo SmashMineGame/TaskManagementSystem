@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Task extends Component {
 	constructor(props) {
@@ -9,17 +10,25 @@ class Task extends Component {
 	
 
 	toggleTaskHandler() {
-		this.props.toggle(this.props.uuid);
+		this.props.check(this.props.uuid);
 	}
 
 	render() {
 		return (
 			<div className="task">
-  				<button className="checkbtn" onClick={this.toggleTaskHandler}></button>
-  				<h3 className="task_name">{this.props.name}</h3>
+				<div className="row">
+  					<button className="checkbtn" onClick={this.toggleTaskHandler}>X</button>
+  					<p className="task_name">{this.props.name}</p>
+				</div>
 			</div>
 		);
 	}
 }
+
+Task.propTypes = {
+	check: PropTypes.func.isRequired,
+	name: PropTypes.string.isRequired,
+	dueDate: PropTypes.string.isRequired,
+};
 
 export default Task;
