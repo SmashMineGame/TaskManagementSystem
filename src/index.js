@@ -4,6 +4,6 @@ import TodoApp from './TodoApp';
 import './index.scss'
 
 ReactDOM.render(
-	<TodoApp />,
+	<TodoApp/>,
 	document.getElementById("root")
 );
