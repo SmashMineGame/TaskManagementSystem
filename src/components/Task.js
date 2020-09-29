@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import TaskFlag from './TaskFlag';
 
 class Task extends Component {
 	constructor(props) {
@@ -19,6 +20,9 @@ class Task extends Component {
 				<div className="row">
   					<button className="checkbtn" onClick={this.toggleTaskHandler}>X</button>
   					<p className="task_name">{this.props.name}</p>
+				</div>
+				<div className="row">
+					<TaskFlag />
 				</div>
 			</div>
 		);

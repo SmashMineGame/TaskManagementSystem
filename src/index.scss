@@ -1,3 +1,7 @@
+@import "./scss/fontawesome.scss";
+@import "./scss/_fixed-width.scss";
+@import "./scss/solid.scss";
+
 $red: #f44747;
 $pink: #e06c75;
 $orange: #d19a66;
@@ -12,6 +16,7 @@ $darkGrey: #2a2a2a;
 $mediumGrey: #808080;
 $lightGrey: #cccccc;
 $light: #f5f5f5;
+
 
 * {
   color: $light;
@@ -54,12 +59,16 @@ button {
   padding: 8px;
   margin-top: 5px;
   $rowHeight: 17px;
-  height: $rowHeight * 2 + 16px;
+  height: ($rowHeight + 8) * 2 + 8px;
   border-radius: 5px;
   
-  .row * {
-    margin-right: 12px;
-    display: inline-block;
+  .row {
+    margin-bottom: 8px;
+
+    * {
+      margin-right: 12px;
+      display: inline-block;
+    }
   }
   
   .checkbtn {
@@ -82,5 +91,15 @@ button {
   .task_flag {
     border-radius: 5px;
     border: solid 1px $mediumGrey;
+    padding: 5px;
+  }
+}
+
+.icon {
+  @extend %fa-icon;
+  @extend .fas;
+
+  &:before {
+    content: fa-content($fa-var-cog);
   }
 }

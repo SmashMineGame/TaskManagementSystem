@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 class TaskFlag extends Component {
@@ -7,8 +6,13 @@ class TaskFlag extends Component {
 		super(props);
 	
 	}
+
 	render() {
-		
+		return (
+			<div className="task_flag">
+				<i className="icon"></i>
+			</div>
+		);
 	}
 }
 
