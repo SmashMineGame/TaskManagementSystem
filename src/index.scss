@@ -66,7 +66,6 @@ button {
     margin-bottom: 8px;
 
     * {
-      margin-right: 12px;
       display: inline-block;
     }
   }
@@ -78,6 +77,7 @@ button {
     border: 1px $mediumGrey solid;
     background-color: $darkGrey;
     transition: background 0.1s ease-out;
+    margin-right: 12px;
 
     &:hover {
       background-color: $lightGrey;
@@ -86,12 +86,19 @@ button {
 
   .task_name {
     font-size: $rowHeight;
+    margin-right: 12px;
   }
 
   .task_flag {
     border-radius: 5px;
     border: solid 1px $mediumGrey;
-    padding: 5px;
+    padding: 5px 8px;
+    margin-right: 12px;
+
+
+    .content {
+      font-size: small;
+    }
   }
 }
 
@@ -99,7 +106,18 @@ button {
   @extend %fa-icon;
   @extend .fas;
 
+  margin-right: 8px;
+
   &:before {
     content: fa-content($fa-var-cog);
+  }
+
+}
+
+.icon-date {
+  @extend .icon;
+
+  &:before {
+    content: fa-content($fa-var-calendar-alt);
   }
 }

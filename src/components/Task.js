@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import TaskFlag from './TaskFlag';
+import TaskDateFlag from './TaskDateFlag';
 
 class Task extends Component {
 	constructor(props) {
@@ -22,7 +22,7 @@ class Task extends Component {
   					<p className="task_name">{this.props.name}</p>
 				</div>
 				<div className="row">
-					<TaskFlag />
+					<TaskDateFlag />
 				</div>
 			</div>
 		);
