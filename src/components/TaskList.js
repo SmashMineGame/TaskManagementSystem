@@ -6,10 +6,6 @@ import Task from './Task';
 import Form from './Form';
 
 class TaskList extends Component {
-	componentDidMount() {
-		this.props.getTasks();
-	}
-
 	render() {
 		return (
 			<div className="container" id="content">
@@ -26,4 +22,4 @@ const mapStateToProps = state => ({
 	tasks: state.tasks,
 })
 
-export default connect(mapStateToProps, { getTasks })(TaskList);
+export default connect(mapStateToProps)(TaskList);

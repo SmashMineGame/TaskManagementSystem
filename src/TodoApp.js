@@ -1,10 +1,17 @@
-import React, { Component } from 'react';
 import { v4 as uuid } from 'uuid';
+import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
 
 import Nav from './components/Nav';
 import TaskList from './components/TaskList';
+
+import { newTask } from './actions/taskActions';
+
+store.dispatch(newTask('sample1'));
+store.dispatch(newTask('sample2'));
+store.dispatch(newTask('sample3'));
+console.log('store', store.getState());
 
 class TodoApp extends Component {
 

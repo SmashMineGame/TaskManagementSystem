@@ -1,9 +1,9 @@
-import { GET_TASKS, NEW_TASK } from './types';
+import { DEL_TASK, NEW_TASK } from './types';
 
-export const getTasks = () => dispatch => {
-	console.log('getting');
-	dispatch({
-		type: GET_TASKS,
-		payload: []
-	})
+export const newTask = (taskName) => {
+	console.log('newTask Action');
+	return {
+		type: NEW_TASK,
+		taskName: taskName 
+	}
 }
