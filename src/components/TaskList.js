@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getTasks } from '../actions/taskActions';
 
 import Task from './Task';
 import Form from './Form';
 
 class TaskList extends Component {
+	componentDidMount() {
+		this.props.getTasks();
+	}
+
 	render() {
 		return (
 			<div className="container" id="content">
@@ -16,5 +22,8 @@ class TaskList extends Component {
 	}
 }
 
+const mapStateToProps = state => ({
+	tasks: state.tasks,
+})
 
-export default TaskList;
+export default connect(mapStateToProps, { getTasks })(TaskList);

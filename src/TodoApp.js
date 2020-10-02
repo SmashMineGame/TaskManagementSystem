@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { v4 as uuid } from 'uuid';
+import { Provider } from 'react-redux';
+import store from './store';
 
 import Nav from './components/Nav';
 import TaskList from './components/TaskList';
@@ -51,10 +53,10 @@ class TodoApp extends Component {
 	}
 
 	render() {
-		return (<>
+		return (<Provider store={store}>
 			<Nav />
 			<TaskList tasks={this.state.tasks} newTask={this.newTask} toggleTask={this.toggleTask}/>
-		</>);
+		</Provider>);
 	}
 }
 
