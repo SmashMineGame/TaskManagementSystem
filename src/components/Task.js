@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { togTask } from '../actions/taskActions';
+
 import PropTypes from 'prop-types';
 import TaskDateFlag from './TaskDateFlag';
 
@@ -11,7 +14,7 @@ class Task extends Component {
 
 
 	toggleTaskHandler() {
-		this.props.check(this.props.uuid);
+		this.props.toggleChecked(this.props.uuid);
 	}
 
 	render() {
@@ -35,4 +38,10 @@ Task.propTypes = {
 	dueDate: PropTypes.string.isRequired,
 };
 
-export default Task;
+const mapDispatchToProps = dispatch => ({
+	toggleChecked: key => {
+		dispatch(togTask(key))
+	}
+});
+
+export default connect(undefined, mapDispatchToProps)(Task);

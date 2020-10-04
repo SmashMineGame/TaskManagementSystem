@@ -1,20 +1,26 @@
 import { v4 as uuid } from 'uuid';
-import { DEL_TASK, NEW_TASK } from '../actions/types';
+import { TOG_TASK, NEW_TASK } from '../actions/types';
 
 const initState = {
 	tasks: [],
 }
 
 export default function (state = initState, action) {
+	var newState = JSON.parse(JSON.stringify(state));
 	switch (action.type) {
 		case NEW_TASK:
-			var newState = { ...state };
 			newState.tasks.push(newTask(action.taskName));
-			console.log("newTask Reducer");
-			return newState;
+			break;
+		case TOG_TASK:
+			newState.tasks.map(el => {
+				if (el.key === action.key) el.completed = !el.completed;
+				return el;
+			});
+			break;
 		default:
-			return state;
+			break;
 	}
+	return newState;
 }
 
 function newTask(taskName) {
