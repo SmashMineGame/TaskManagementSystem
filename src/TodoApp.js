@@ -11,13 +11,12 @@ import { newTask } from './actions/taskActions';
 store.dispatch(newTask('sample1'));
 store.dispatch(newTask('sample2'));
 store.dispatch(newTask('sample3'));
-console.log('store', store.getState());
 
 class TodoApp extends Component {
 
 	constructor(props) {
 		super(props);
-		
+
 		this.state = {
 			tasks: []
 		}
@@ -26,10 +25,10 @@ class TodoApp extends Component {
 		this.toggleTask = this.toggleTask.bind(this);
 	}
 
-	componentDidMount() {this.newTask("sample task 1")}
-	
+	componentDidMount() { this.newTask("sample task 1") }
 
-	newTask(taskName){
+
+	newTask(taskName) {
 
 		var taskTemplate = {
 			name: undefined,
@@ -44,11 +43,10 @@ class TodoApp extends Component {
 		newState.tasks.push(newTask);
 
 		this.setState(newState);
-		// console.log(newTask);
 	}
 
 	toggleTask(key) {
-		var newState = JSON.parse(JSON.stringify(this.state));	
+		var newState = JSON.parse(JSON.stringify(this.state));
 		for (let i = 0; i < newState.tasks.length; i++) {
 			const task = newState.tasks[i];
 			if (task.key === key) {
@@ -62,7 +60,7 @@ class TodoApp extends Component {
 	render() {
 		return (<Provider store={store}>
 			<Nav />
-			<TaskList tasks={this.state.tasks} newTask={this.newTask} toggleTask={this.toggleTask}/>
+			<TaskList tasks={this.state.tasks} newTask={this.newTask} toggleTask={this.toggleTask} />
 		</Provider>);
 	}
 }

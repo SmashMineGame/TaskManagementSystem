@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getTasks } from '../actions/taskActions';
+import { newTask } from '../actions/taskActions'
 
 import Task from './Task';
-import Form from './Form';
 
 class TaskList extends Component {
+	constructor(props) {
+		super(props);
+		this.newSampleTask = this.newSampleTask.bind(this);
+	}
+
+	newSampleTask() {
+		this.props.newTask('sample task name');
+	}
+
 	render() {
 		return (
 			<div className="container" id="content">
-				<Form newTask={this.props.newTask}/>
-				{this.props.tasks.map(task => 
-					task.completed ? undefined : <Task name={task.name} check={this.props.toggleTask} uuid= {task.key} key={task.key} />
+				<button onClick={this.newSampleTask}>Create New Task</button>
+				{this.props.tasks.map(task =>
+					task.completed ? undefined : <Task name={task.name} check={this.props.toggleTask} uuid={task.key} key={task.key} />
 				)}
 			</div>
 		);
@@ -19,7 +27,13 @@ class TaskList extends Component {
 }
 
 const mapStateToProps = state => ({
-	tasks: state.tasks,
-})
+	tasks: state.taskList.tasks,
+});
 
-export default connect(mapStateToProps)(TaskList);
+const mapDispatchToProps = dispatch => ({
+	newTask: id => {
+		dispatch(newTask(id))
+	}
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TaskList);

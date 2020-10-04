@@ -5,10 +5,10 @@ import TaskDateFlag from './TaskDateFlag';
 class Task extends Component {
 	constructor(props) {
 		super(props);
-		
+
 		this.toggleTaskHandler = this.toggleTaskHandler.bind(this);
 	}
-	
+
 
 	toggleTaskHandler() {
 		this.props.check(this.props.uuid);
@@ -18,8 +18,8 @@ class Task extends Component {
 		return (
 			<div className="task">
 				<div className="row">
-  					<button className="checkbtn" onClick={this.toggleTaskHandler}>X</button>
-  					<p className="task_name">{this.props.name}</p>
+					<button className="checkbtn" onClick={this.toggleTaskHandler}>X</button>
+					<p className="task_name">{this.props.name}</p>
 				</div>
 				<div className="row">
 					<TaskDateFlag />

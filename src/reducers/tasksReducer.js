@@ -8,15 +8,16 @@ const initState = {
 export default function (state = initState, action) {
 	switch (action.type) {
 		case NEW_TASK:
-			var newState = {...state};
+			var newState = { ...state };
 			newState.tasks.push(newTask(action.taskName));
+			console.log("newTask Reducer");
 			return newState;
 		default:
 			return state;
 	}
 }
 
-function newTask (taskName) {
+function newTask(taskName) {
 
 	var taskTemplate = {
 		name: undefined,
