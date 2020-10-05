@@ -21,7 +21,7 @@ class Task extends Component {
 		return (
 			<div className="task">
 				<div className="row">
-					<button className="checkbtn" onClick={this.toggleTaskHandler}>X</button>
+					<button className="checkbtn" onClick={this.toggleTaskHandler}><i className="icon-cross"></i></button>
 					<p className="task_name">{this.props.name}</p>
 				</div>
 				<div className="row">

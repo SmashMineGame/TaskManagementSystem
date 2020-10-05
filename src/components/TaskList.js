@@ -22,11 +22,11 @@ class TaskList extends Component {
 	render() {
 		return (
 			<div className="container" id="content">
-				<button onClick={this.newSampleTask}>Create New Task</button>
 				<button onClick={this.printState}>Print State</button>
 				{this.props.tasks.map(task =>
 					task.completed ? undefined : <Task name={task.name} check={this.props.toggleTask} uuid={task.key} key={task.key} />
 				)}
+				<button onClick={this.newSampleTask} className="newTaskBtn">+</button>
 			</div>
 		);
 	}

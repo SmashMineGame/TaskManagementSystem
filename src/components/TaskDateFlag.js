@@ -12,9 +12,8 @@ class TaskDateFlag extends Component {
 	}
 }
 
-// TaskDateFlag.propTypes = {
-// 	icon: PropTypes.string.isRequired,
-// 	date: PropTypes.string.isRequired
-// }
+TaskDateFlag.propTypes = {
+	date: PropTypes.string.isRequired
+}
 
 export default TaskDateFlag;

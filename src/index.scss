@@ -57,13 +57,14 @@ button {
 .task {
   border: solid 1px $mediumGrey;
   padding: 8px;
-  margin-top: 5px;
+  margin-top: 8px;
   $rowHeight: 17px;
   height: ($rowHeight + 8) * 2 + 8px;
   border-radius: 5px;
   
   .row {
     margin-bottom: 8px;
+    height: $rowHeight;
 
     * {
       display: inline-block;
@@ -78,9 +79,10 @@ button {
     background-color: $darkGrey;
     transition: background 0.1s ease-out;
     margin-right: 12px;
+    padding-left: 3.5px;
 
     &:hover {
-      background-color: $lightGrey;
+      background-color: $mediumGrey;
     }
   }
 
@@ -105,13 +107,7 @@ button {
 .icon {
   @extend %fa-icon;
   @extend .fas;
-
   margin-right: 8px;
-
-  &:before {
-    content: fa-content($fa-var-cog);
-  }
-
 }
 
 .icon-date {
@@ -119,5 +115,32 @@ button {
 
   &:before {
     content: fa-content($fa-var-calendar-alt);
+  }
+}
+
+.icon-cross {
+  @extend .icon;
+  color: $darkGrey;
+
+  &:before {
+    content: fa-content($fa-var-times)
+  }
+}
+
+.newTaskBtn {
+  $size: 40px;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  border: 1px solid $mediumGrey;
+  background-color: transparent;
+  color: $mediumGrey;
+  font-size: $size - 5;
+  margin-top: 8px;
+  transition: background 0.1s ease-in-out;
+
+  &:hover {
+    background-color: $mediumGrey;
+    color: $darkGrey;
   }
 }
