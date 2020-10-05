@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 class TaskDateFlag extends Component {
 	render() {
 		return (
 			<div className="task_flag">
-				<i className="icon-date"></i>
+				<FontAwesomeIcon icon={faCalendarAlt} className="icon-date" />
 				<p className="content">Tommmorow</p>
 			</div>
 		);

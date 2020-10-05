@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { togTask } from '../actions/taskActions';
 
-import PropTypes from 'prop-types';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import TaskDateFlag from './TaskDateFlag';
 
 class Task extends Component {
@@ -19,21 +22,23 @@ class Task extends Component {
 
 	render() {
 		return (
-			<div className="task">
+			<div className={`task ${this.props.checked ? "completed" : ""}`} >
 				<div className="row">
-					<button className="checkbtn" onClick={this.toggleTaskHandler}><i className="icon-cross"></i></button>
+					<button className="checkbtn" onClick={this.toggleTaskHandler}>
+						<FontAwesomeIcon icon={faTimes} className="icon-cross" />
+					</button>
 					<p className="task_name">{this.props.name}</p>
 				</div>
 				<div className="row">
 					<TaskDateFlag />
 				</div>
-			</div>
+			</div >
 		);
 	}
 }
 
 Task.propTypes = {
-	check: PropTypes.func.isRequired,
+	checked: PropTypes.bool.isRequired,
 	name: PropTypes.string.isRequired,
 	dueDate: PropTypes.string.isRequired,
 };
