@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { togTask } from '../actions/taskActions';
 
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import TaskDateFlag from './TaskDateFlag';
@@ -25,7 +25,7 @@ class Task extends Component {
 			<div className={`task ${this.props.checked ? "completed" : ""}`} >
 				<div className="row">
 					<button className="checkbtn" onClick={this.toggleTaskHandler}>
-						<FontAwesomeIcon icon={faTimes} className="icon-cross" />
+						<FontAwesomeIcon icon={faCheck} className="icon-check" />
 					</button>
 					<p className="task_name">{this.props.name}</p>
 				</div>

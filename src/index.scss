@@ -75,7 +75,7 @@ button {
     background-color: $darkGrey;
     transition: background 0.1s ease-out;
     margin-right: 12px;
-    padding-left: 3.5px;
+    padding: 2px;
 
     &:hover {
       background-color: $mediumGrey;
@@ -99,8 +99,14 @@ button {
     }
   }
 
-  &.completed .task_name {
-    text-decoration-line: line-through;
+  &.completed {
+    .task_name {
+      text-decoration-line: line-through;
+    }
+
+    .checkbtn {
+      background-color: $mediumGrey;
+    }
   }
 }
 
@@ -112,7 +118,7 @@ button {
   @extend .icon;
 }
 
-.icon-cross {
+.icon-check {
   @extend .icon;
 
   * {

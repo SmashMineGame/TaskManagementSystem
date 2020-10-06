@@ -1,9 +1,11 @@
 import { TOG_TASK, NEW_TASK } from './types';
+import { v4 as uuid } from 'uuid';
 
 export const newTask = (taskName) => {
 	return {
 		type: NEW_TASK,
-		taskName: taskName
+		taskName: taskName,
+		id: uuid()
 	}
 }
 

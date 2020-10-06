@@ -1,4 +1,3 @@
-import { v4 as uuid } from 'uuid';
 import { TOG_TASK, NEW_TASK } from '../actions/types';
 
 const initState = {
@@ -9,7 +8,7 @@ export default function (state = initState, action) {
 	var newState = JSON.parse(JSON.stringify(state));
 	switch (action.type) {
 		case NEW_TASK:
-			newState.tasks.push(newTask(action.taskName));
+			newState.tasks.push(newTask(action.id, action.taskName));
 			break;
 		case TOG_TASK:
 			newState.tasks.map(el => {
@@ -23,12 +22,12 @@ export default function (state = initState, action) {
 	return newState;
 }
 
-function newTask(taskName) {
+function newTask(id, taskName) {
 
 	var taskTemplate = {
 		name: undefined,
 		completed: false,
-		key: uuid()
+		key: id
 	}
 
 	var task = {
