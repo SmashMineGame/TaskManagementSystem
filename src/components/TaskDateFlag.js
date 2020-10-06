@@ -9,7 +9,7 @@ class TaskDateFlag extends Component {
 		return (
 			<div className="task_flag">
 				<FontAwesomeIcon icon={faCalendarAlt} className="icon-date" />
-				<p className="content">Tommmorow</p>
+				<p className="content">{`${this.props.date.getMonth() + 1}"-"${this.props.date.getDate()}-${this.props.date.getFullYear()}`}</p>
 			</div>
 		);
 	}

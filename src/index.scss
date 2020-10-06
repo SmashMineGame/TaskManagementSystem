@@ -100,12 +100,16 @@ button {
   }
 
   &.completed {
+    border: 1px $green solid;
+
     .task_name {
+      color: $green;
       text-decoration-line: line-through;
     }
 
     .checkbtn {
-      background-color: $mediumGrey;
+      background-color: $green;
+      border: 1px $green solid;
     }
   }
 }

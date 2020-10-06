@@ -30,7 +30,7 @@ class Task extends Component {
 					<p className="task_name">{this.props.name}</p>
 				</div>
 				<div className="row">
-					<TaskDateFlag />
+					<TaskDateFlag date={this.props.dueDate} />
 				</div>
 			</div >
 		);

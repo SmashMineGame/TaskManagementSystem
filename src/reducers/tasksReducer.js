@@ -8,7 +8,7 @@ export default function (state = initState, action) {
 	var newState = JSON.parse(JSON.stringify(state));
 	switch (action.type) {
 		case NEW_TASK:
-			newState.tasks.push(newTask(action.id, action.taskName));
+			newState.tasks.push(newTask(action.id, action.taskName, action.dueDate, action.hasTime));
 			break;
 		case TOG_TASK:
 			newState.tasks.map(el => {
@@ -22,17 +22,14 @@ export default function (state = initState, action) {
 	return newState;
 }
 
-function newTask(id, taskName) {
-
-	var taskTemplate = {
-		name: undefined,
+function newTask(id, taskName, dueDate, hasTime) {
+	var task = {
+		name: taskName,
 		completed: false,
+		dueDate: dueDate,
+		hasTime: hasTime,
 		key: id
 	}
 
-	var task = {
-		...taskTemplate,
-		name: taskName
-	};
 	return task;
 }

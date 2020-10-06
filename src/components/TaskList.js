@@ -24,7 +24,13 @@ class TaskList extends Component {
 			<div className="container" id="content">
 				<button onClick={this.printState}>Print State</button>
 				{this.props.tasks.map(task =>
-					<Task name={task.name} checked={task.completed} uuid={task.key} key={task.key} />
+					<Task
+						name={task.name}
+						checked={task.completed}
+						uuid={task.key}
+						key={task.key}
+						dueDate={task.dueDate}
+					/>
 				)}
 				<button onClick={this.newSampleTask} className="newTaskBtn">+</button>
 			</div>
